@@ -55,14 +55,6 @@ vector<double> calculateCentroidLocation(Cluster cluster) {
     return newCentroid;
 }
 
-Cluster findClusterById(unsigned int id, vector<Cluster> clusters) {
-    for (auto &cluster : clusters) {
-        if (cluster.getClusterId() == id) {
-            return cluster;
-        }
-    }
-}
-
 int main() {
 //    char tmp[256];
 //    getcwd(tmp, 256);
@@ -88,12 +80,12 @@ int main() {
     // end load csv
 
     int k = 3;
-    int iterationUpper = 10;
+    int iterationUpper = 100;
 
     // TODO: randomly select k initial points as centroid
-    Cluster cluster1(1, points.at(0));
-    Cluster cluster2(2, points.at(120));
-    Cluster cluster3(3, points.at(360));
+    Cluster cluster1(0, points.at(500));
+    Cluster cluster2(1, points.at(120));
+    Cluster cluster3(2, points.at(360));
 
     clusters.push_back(cluster1);
     clusters.push_back(cluster2);
@@ -104,19 +96,20 @@ int main() {
 
     for (int i = 0; i < iterationUpper; i++) {
         cout << "Iteration " << i + 1 << ": " << endl;
-        for (auto &point : points) {
+        for (int j = 0; j < points.size(); j++) {
+            Point point = points.at(j);
             int closetId = findClosetCluster(point, clusters);
             if (point.getClusterId() != closetId) {
-                Cluster oldCluster = clusters.at(closetId - 1);
+                Cluster oldCluster = clusters.at(point.getClusterId());
                 oldCluster.removePoint(point);
-                clusters.at(closetId - 1) = oldCluster;
+                clusters.at(point.getClusterId()) = oldCluster;
 
                 point.setClusterId(closetId);
-
-                Cluster newCluster = clusters.at(closetId - 1);
-                newCluster.addPoint(point);
-                clusters.at(closetId - 1) = newCluster;
             }
+
+            Cluster newCluster = clusters.at(closetId);
+            newCluster.addPoint(point);
+            clusters.at(closetId) = newCluster;
         }
 
         // TODO: update centroid location
@@ -124,6 +117,13 @@ int main() {
             vector<double> newCentroid = calculateCentroidLocation(clusters.at(j));
             clusters.at(j).setCentroid(newCentroid);
         }
+
+//        for (int j = 0; j < k; j++) {
+//            for (int l = 0; l < clusters.at(j).getCentroid().size(); l++) {
+//                cout << clusters.at(j).getCentroid().at(l);
+//            }
+//            cout << endl;
+//        }
     }
 
     for (int i = 0; i < k; i++) {
