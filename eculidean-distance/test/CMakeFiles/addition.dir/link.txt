@@ -1,0 +1,1 @@
+/usr/bin/c++    -pthread -Wall -funroll-loops -march=native -maes -mrdseed -std=c++11 -O3 -O3 -DNDEBUG   CMakeFiles/addition.dir/addition.cpp.o  -o ../bin/addition  -Wl,-rpath,/usr/local/lib /usr/local/lib/libemp-tool.so /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so 

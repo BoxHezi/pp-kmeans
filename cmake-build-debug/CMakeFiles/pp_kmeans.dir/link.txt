@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/pp_kmeans.dir/main.cpp.o CMakeFiles/pp_kmeans.dir/Point.cpp.o CMakeFiles/pp_kmeans.dir/Cluster.cpp.o  -o pp_kmeans 

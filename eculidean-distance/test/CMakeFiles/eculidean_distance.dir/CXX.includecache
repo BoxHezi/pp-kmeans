@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ubuntu/eculidean-distances/eculidean-distance/test/additive_party.h
+
+/home/ubuntu/eculidean-distances/eculidean-distance/test/distance_party.h
+party.h
+/home/ubuntu/eculidean-distances/eculidean-distance/test/party.h
+
+/home/ubuntu/eculidean-distances/eculidean-distance/test/eculidean_distance.cpp
+iostream
+-
+secret_sharing.h
+/home/ubuntu/eculidean-distances/eculidean-distance/test/secret_sharing.h
+
+/home/ubuntu/eculidean-distances/eculidean-distance/test/multiplication_party.h
+party.h
+/home/ubuntu/eculidean-distances/eculidean-distance/test/party.h
+
+/home/ubuntu/eculidean-distances/eculidean-distance/test/party.h
+emp-tool/emp-tool.h
+/home/ubuntu/eculidean-distances/eculidean-distance/test/emp-tool/emp-tool.h
+emp-ot/emp-ot.h
+/home/ubuntu/eculidean-distances/eculidean-distance/test/emp-ot/emp-ot.h
+
+/home/ubuntu/eculidean-distances/eculidean-distance/test/secret_sharing.h
+party.h
+/home/ubuntu/eculidean-distances/eculidean-distance/test/party.h
+additive_party.h
+/home/ubuntu/eculidean-distances/eculidean-distance/test/additive_party.h
+multiplication_party.h
+/home/ubuntu/eculidean-distances/eculidean-distance/test/multiplication_party.h
+distance_party.h
+/home/ubuntu/eculidean-distances/eculidean-distance/test/distance_party.h
+

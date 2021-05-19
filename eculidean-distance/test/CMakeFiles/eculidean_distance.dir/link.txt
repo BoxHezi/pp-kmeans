@@ -1,0 +1,1 @@
+/usr/bin/c++    -pthread -Wall -funroll-loops -march=native -maes -mrdseed -std=c++11 -O3 -O3 -DNDEBUG   CMakeFiles/eculidean_distance.dir/eculidean_distance.cpp.o  -o ../bin/eculidean_distance  -Wl,-rpath,/usr/local/lib /usr/local/lib/libemp-tool.so /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so 

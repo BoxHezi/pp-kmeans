@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ubuntu/eculidean-distances/eculidean-distance/test/multiplication.cpp
+iostream
+-
+secret_sharing/secret_sharing.h
+/home/ubuntu/eculidean-distances/eculidean-distance/test/secret_sharing/secret_sharing.h
+
+secret_sharing/additive_party.h
+
+secret_sharing/distance_party.h
+party.h
+secret_sharing/party.h
+
+secret_sharing/multiplication_party.h
+party.h
+secret_sharing/party.h
+
+secret_sharing/party.h
+emp-tool/emp-tool.h
+secret_sharing/emp-tool/emp-tool.h
+emp-ot/emp-ot.h
+secret_sharing/emp-ot/emp-ot.h
+
+secret_sharing/secret_sharing.h
+secret_sharing/party.h
+secret_sharing/secret_sharing/party.h
+secret_sharing/additive_party.h
+secret_sharing/secret_sharing/additive_party.h
+secret_sharing/multiplication_party.h
+secret_sharing/secret_sharing/multiplication_party.h
+secret_sharing/distance_party.h
+secret_sharing/secret_sharing/distance_party.h
+
