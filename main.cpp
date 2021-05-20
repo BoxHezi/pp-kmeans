@@ -56,10 +56,22 @@ vector<double> calculateCentroidLocation(Cluster &cluster) {
     return newCentroid;
 }
 
-int main() {
+/**
+ * @param argc number of arguments, need 2
+ * @param argv arguments, 1st is number of K, 2nd is number of iteration
+ * @return exit code
+ */
+int main(int argc, char **argv) {
 //    char tmp[256];
 //    getcwd(tmp, 256);
 //    cout << "Current working directory: " << tmp << endl;
+
+    if (argc != 3) {
+        cout << "Usage: ./kmeans <k> <iteration>" << endl;
+        cout << "For example: ./kemans 3 100" << endl;
+        cout << "The above command will run the clustering algorithm with 3 clusters, and 100 iterations maximum" << endl;
+        return 1;
+    }
 
     std::cout << "k-means clustering" << std::endl;
 
@@ -80,18 +92,10 @@ int main() {
     }
     // end load csv
 
-    int k = 3;
-    int iterationUpper = 10;
+    int k = atoi(argv[1]);
+    int iterationUpper = atoi(argv[2]);
 
-//    // TODO: randomly select k initial points as centroid
-//    Cluster cluster1(0, points.at(500));
-//    Cluster cluster2(1, points.at(120));
-//    Cluster cluster3(2, points.at(360));
-//
-//    clusters.push_back(cluster1);
-//    clusters.push_back(cluster2);
-//    clusters.push_back(cluster3);
-
+    // Init k-points as cluster centroid
     for (int i = 0; i < k; i++) {
         Cluster tempCluster(i, points.at(points.size() / (i + 1) - 1));
         clusters.push_back(tempCluster);
@@ -127,15 +131,26 @@ int main() {
             }
         }
 
-        // TODO: FIX UPDATE CENTROID LOCATION BUG
+        // UPDATE CENTROID LOCATION
+        bool sameCentroid = true;
         for (auto &c : clusters) {
             unsigned int clusterId = c.getClusterId();
             vector<double> newCentroid = calculateCentroidLocation(c);
-            c.setCentroid(newCentroid);
-            clusters.at(clusterId) = c;
+            if (newCentroid != c.getCentroid()) {
+                sameCentroid = false;
+                c.setCentroid(newCentroid);
+                clusters.at(clusterId) = c;
+            }
+        }
+        for (auto &c : clusters) {
+            c.printCentroid();
+        }
+        if (sameCentroid) {
+            break;
         }
     }
 
+    cout << endl << "Clustering Done!" << endl;
     for (auto &c : clusters) {
         c.printCentroid();
     }
