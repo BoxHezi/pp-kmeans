@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/e/code/pp-kmeans/Cluster.cpp" "/mnt/e/code/pp-kmeans/cmake-build-debug/CMakeFiles/pp_kmeans.dir/Cluster.cpp.o"
-  "/mnt/e/code/pp-kmeans/Point.cpp" "/mnt/e/code/pp-kmeans/cmake-build-debug/CMakeFiles/pp_kmeans.dir/Point.cpp.o"
-  "/mnt/e/code/pp-kmeans/main.cpp" "/mnt/e/code/pp-kmeans/cmake-build-debug/CMakeFiles/pp_kmeans.dir/main.cpp.o"
+  "/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/Cluster.cpp" "/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/CMakeFiles/pp_kmeans.dir/Cluster.cpp.o"
+  "/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/Point.cpp" "/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/CMakeFiles/pp_kmeans.dir/Point.cpp.o"
+  "/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/main.cpp" "/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/CMakeFiles/pp_kmeans.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

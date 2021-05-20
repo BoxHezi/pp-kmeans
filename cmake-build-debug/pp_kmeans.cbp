@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/mnt/e/code/pp-kmeans/cmake-build-debug"/>
+				<Option working_dir="/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/mnt/e/code/pp-kmeans/cmake-build-debug"/>
+				<Option working_dir="/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="pp_kmeans">
-				<Option output="/mnt/e/code/pp-kmeans/cmake-build-debug/pp_kmeans" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/e/code/pp-kmeans/cmake-build-debug"/>
+				<Option output="/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/pp_kmeans" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -44,15 +44,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 pp_kmeans"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 pp_kmeans"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="pp_kmeans/fast">
-				<Option output="/mnt/e/code/pp-kmeans/cmake-build-debug/pp_kmeans" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/e/code/pp-kmeans/cmake-build-debug"/>
+				<Option output="/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/pp_kmeans" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -67,39 +67,39 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 pp_kmeans/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 pp_kmeans/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/mnt/e/code/pp-kmeans/cmake-build-debug"/>
+				<Option working_dir="/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/mnt/e/code/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/e/code/pp-kmeans/Cluster.cpp">
+		<Unit filename="/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/Cluster.cpp">
 			<Option target="pp_kmeans"/>
 		</Unit>
-		<Unit filename="/mnt/e/code/pp-kmeans/Cluster.h">
+		<Unit filename="/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/Cluster.h">
 			<Option target="pp_kmeans"/>
 		</Unit>
-		<Unit filename="/mnt/e/code/pp-kmeans/Point.cpp">
+		<Unit filename="/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/Point.cpp">
 			<Option target="pp_kmeans"/>
 		</Unit>
-		<Unit filename="/mnt/e/code/pp-kmeans/Point.h">
+		<Unit filename="/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/Point.h">
 			<Option target="pp_kmeans"/>
 		</Unit>
-		<Unit filename="/mnt/e/code/pp-kmeans/main.cpp">
+		<Unit filename="/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/main.cpp">
 			<Option target="pp_kmeans"/>
 		</Unit>
-		<Unit filename="/mnt/e/code/pp-kmeans/CMakeLists.txt">
+		<Unit filename="/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

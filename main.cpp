@@ -17,24 +17,45 @@ using namespace std;
  */
 int findClosetCluster(Point point, vector<Cluster> clusters) {
     unsigned int dimensionCount = point.getAttributes().size();
-    double minDistance = 0;
-    double distance = 0;
-    for (int i = 0; i < dimensionCount; i++) {
-        minDistance += pow(point.getAttributes().at(i) - clusters.at(0).getCentroid().at(i), 2);
-    }
-    int closetId = clusters.at(0).getClusterId();
-
-    for (int i = 1; i < clusters.size(); i++) {
+    vector<double> distances;
+    double distance;
+    for (int i = 0; i < clusters.size(); i++) {
+        Cluster cluster = clusters.at(i);
         distance = 0;
         for (int j = 0; j < dimensionCount; j++) {
-            distance += pow(point.getAttributes().at(j) - clusters.at(i).getCentroid().at(j), 2);
-            if (distance < minDistance) {
-                minDistance = distance;
-                closetId = clusters.at(i).getClusterId();
-            }
+            distance += pow(point.getAttributes().at(j) - cluster.getCentroid().at(j), 2);
+        }
+        distances.push_back(distance);
+    }
+
+    int closetClusterId = 0;
+    for (int i = 1; i < distances.size(); i++) {
+        if (distances.at(i) < distances.at(closetClusterId)) {
+            closetClusterId = i;
         }
     }
-    return closetId;
+
+    return closetClusterId;
+
+//    unsigned int dimensionCount = point.getAttributes().size();
+//    double minDistance = 0;
+//    double distance = 0;
+//    for (int i = 0; i < dimensionCount; i++) {
+//        minDistance += pow(point.getAttributes().at(i) - clusters.at(0).getCentroid().at(i), 2);
+//    }
+//    int closetId = clusters.at(0).getClusterId();
+//
+//    for (int i = 1; i < clusters.size(); i++) {
+//        distance = 0;
+//        for (int j = 0; j < dimensionCount; j++) {
+//            distance += pow(point.getAttributes().at(j) - clusters.at(i).getCentroid().at(j), 2);
+//            if (distance < minDistance) {
+//                minDistance = distance;
+//                closetId = clusters.at(i).getClusterId();
+//            }
+//        }
+//    }
+//    return closetId;
 }
 
 vector<double> calculateCentroidLocation(Cluster cluster) {
@@ -80,7 +101,7 @@ int main() {
     // end load csv
 
     int k = 3;
-    int iterationUpper = 100;
+    int iterationUpper = 10;
 
     // TODO: randomly select k initial points as centroid
     Cluster cluster1(0, points.at(500));
@@ -99,17 +120,28 @@ int main() {
         for (int j = 0; j < points.size(); j++) {
             Point point = points.at(j);
             int closetId = findClosetCluster(point, clusters);
-            if (point.getClusterId() != closetId) {
-                Cluster oldCluster = clusters.at(point.getClusterId());
-                oldCluster.removePoint(point);
-                clusters.at(point.getClusterId()) = oldCluster;
 
+            if (point.getClusterId() == -1) {
                 point.setClusterId(closetId);
-            }
+                points.at(j) = point;
+                Cluster newCluster = clusters.at(closetId);
+                newCluster.addPoint(point);
+                clusters.at(closetId) = newCluster;
+            } else {
+                if (point.getClusterId() != closetId) {
+                    // TODO: REMOVE FROM A CLUSTER
+                    unsigned int oldId = point.getClusterId();
+                    Cluster oldCluster = clusters.at(oldId);
+                    vector<Point> newPoints = oldCluster.removePoint(point);
+                    oldCluster.setPoints(newPoints);
+                    clusters.at(oldId) = oldCluster;
 
-            Cluster newCluster = clusters.at(closetId);
-            newCluster.addPoint(point);
-            clusters.at(closetId) = newCluster;
+                    // TODO: ADD TO A NEW CLUSTER
+                    Cluster newCluster = clusters.at(closetId);
+                    newCluster.addPoint(point);
+                    clusters.at(closetId) = newCluster;
+                }
+            }
         }
 
         // TODO: update centroid location

@@ -13,7 +13,7 @@ using namespace std;
 class Point {
 private:
     int pointId;
-    int clusterId = 0;
+    int clusterId = -1;
     vector<double> attributes;
 
 public:

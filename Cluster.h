@@ -34,13 +34,14 @@ public:
         }
     }
 
-    void removePoint(Point point) {
+    vector<Point> removePoint(Point point) {
         for (int i = 0; i < points.size(); i++) {
             if (points.at(i).getPointId() == point.getPointId()) {
                 points.erase(points.begin() + i);
                 break;
             }
         }
+        return this->points;
     }
 
     int getClusterId() const {
