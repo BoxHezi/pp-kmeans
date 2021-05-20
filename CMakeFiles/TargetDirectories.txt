@@ -1,0 +1,3 @@
+/mnt/e/code/pp-kmeans/CMakeFiles/rebuild_cache.dir
+/mnt/e/code/pp-kmeans/CMakeFiles/pp_kmeans.dir
+/mnt/e/code/pp-kmeans/CMakeFiles/edit_cache.dir

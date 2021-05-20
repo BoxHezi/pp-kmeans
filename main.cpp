@@ -15,12 +15,11 @@ using namespace std;
  * @param clusters all clusters
  * @return cluster id of the closet cluster
  */
-int findClosetCluster(Point point, vector<Cluster> clusters) {
+int findClosetCluster(const Point &point, const vector<Cluster> &clusters) {
     unsigned int dimensionCount = point.getAttributes().size();
     vector<double> distances;
     double distance;
-    for (int i = 0; i < clusters.size(); i++) {
-        Cluster cluster = clusters.at(i);
+    for (auto &cluster : clusters) {
         distance = 0;
         for (int j = 0; j < dimensionCount; j++) {
             distance += pow(point.getAttributes().at(j) - cluster.getCentroid().at(j), 2);
@@ -36,41 +35,22 @@ int findClosetCluster(Point point, vector<Cluster> clusters) {
     }
 
     return closetClusterId;
-
-//    unsigned int dimensionCount = point.getAttributes().size();
-//    double minDistance = 0;
-//    double distance = 0;
-//    for (int i = 0; i < dimensionCount; i++) {
-//        minDistance += pow(point.getAttributes().at(i) - clusters.at(0).getCentroid().at(i), 2);
-//    }
-//    int closetId = clusters.at(0).getClusterId();
-//
-//    for (int i = 1; i < clusters.size(); i++) {
-//        distance = 0;
-//        for (int j = 0; j < dimensionCount; j++) {
-//            distance += pow(point.getAttributes().at(j) - clusters.at(i).getCentroid().at(j), 2);
-//            if (distance < minDistance) {
-//                minDistance = distance;
-//                closetId = clusters.at(i).getClusterId();
-//            }
-//        }
-//    }
-//    return closetId;
 }
 
-vector<double> calculateCentroidLocation(Cluster cluster) {
+vector<double> calculateCentroidLocation(Cluster &cluster) {
     vector<double> newCentroid;
 
     unsigned int dimensionCount = cluster.getCentroid().size();
     vector<Point> tempPoints = cluster.getPoints();
 
-    double sum = 0;
+    double sum;
     for (int i = 0; i < dimensionCount; i++) {
         sum = 0;
         for (auto &tempPoint : tempPoints) {
             sum += tempPoint.getAttributes().at(i);
         }
-        newCentroid.push_back(sum / dimensionCount);
+        double average = sum / (double) tempPoints.size();
+        newCentroid.push_back(average);
     }
 
     return newCentroid;
@@ -103,69 +83,65 @@ int main() {
     int k = 3;
     int iterationUpper = 10;
 
-    // TODO: randomly select k initial points as centroid
-    Cluster cluster1(0, points.at(500));
-    Cluster cluster2(1, points.at(120));
-    Cluster cluster3(2, points.at(360));
+//    // TODO: randomly select k initial points as centroid
+//    Cluster cluster1(0, points.at(500));
+//    Cluster cluster2(1, points.at(120));
+//    Cluster cluster3(2, points.at(360));
+//
+//    clusters.push_back(cluster1);
+//    clusters.push_back(cluster2);
+//    clusters.push_back(cluster3);
 
-    clusters.push_back(cluster1);
-    clusters.push_back(cluster2);
-    clusters.push_back(cluster3);
+    for (int i = 0; i < k; i++) {
+        Cluster tempCluster(i, points.at(points.size() / (i + 1) - 1));
+        clusters.push_back(tempCluster);
+    }
 
     unsigned int dimensionCount = points.at(0).getAttributes().size();
     cout << "Dimension: " << dimensionCount << endl;
 
     for (int i = 0; i < iterationUpper; i++) {
         cout << "Iteration " << i + 1 << ": " << endl;
-        for (int j = 0; j < points.size(); j++) {
-            Point point = points.at(j);
-            int closetId = findClosetCluster(point, clusters);
+        for (auto &p : points) {
+            int closetId = findClosetCluster(p, clusters);
 
-            if (point.getClusterId() == -1) {
-                point.setClusterId(closetId);
-                points.at(j) = point;
+            if (p.getClusterId() == -1) {
+                p.setClusterId(closetId);
                 Cluster newCluster = clusters.at(closetId);
-                newCluster.addPoint(point);
+                newCluster.addPoint(p);
                 clusters.at(closetId) = newCluster;
             } else {
-                if (point.getClusterId() != closetId) {
-                    // TODO: REMOVE FROM A CLUSTER
-                    unsigned int oldId = point.getClusterId();
-                    Cluster oldCluster = clusters.at(oldId);
-                    vector<Point> newPoints = oldCluster.removePoint(point);
-                    oldCluster.setPoints(newPoints);
-                    clusters.at(oldId) = oldCluster;
+                if (p.getClusterId() != closetId) {
+                    // REMOVE FROM A CLUSTER
+                    Cluster oldCluster = clusters.at(p.getClusterId());
+                    oldCluster.removePoint(p);
+                    clusters.at(p.getClusterId()) = oldCluster;
 
-                    // TODO: ADD TO A NEW CLUSTER
+                    p.setClusterId(closetId);
+
+                    // ADD TO A NEW CLUSTER
                     Cluster newCluster = clusters.at(closetId);
-                    newCluster.addPoint(point);
+                    newCluster.addPoint(p);
                     clusters.at(closetId) = newCluster;
                 }
             }
         }
-
-        // TODO: update centroid location
-        for (int j = 0; j < k; j++) {
-            vector<double> newCentroid = calculateCentroidLocation(clusters.at(j));
-            clusters.at(j).setCentroid(newCentroid);
-        }
-
-//        for (int j = 0; j < k; j++) {
-//            for (int l = 0; l < clusters.at(j).getCentroid().size(); l++) {
-//                cout << clusters.at(j).getCentroid().at(l);
-//            }
-//            cout << endl;
+//        for (auto &c : clusters) {
+//            cout << c.getClusterId() << ": " << c.getSize() << endl;
 //        }
+
+        // TODO: FIX UPDATE CENTROID LOCATION BUG
+        for (auto &c : clusters) {
+            unsigned int clusterId = c.getClusterId();
+            vector<double> newCentroid = calculateCentroidLocation(c);
+            c.setCentroid(newCentroid);
+            clusters.at(clusterId) = c;
+        }
     }
 
-    for (int i = 0; i < k; i++) {
-        cout << clusters.at(i).getSize() << endl;
+    for (auto &c : clusters) {
+        cout << c.getSize() << endl;
     }
-
-//    for (int i = 0; i < k; i++) {
-//        cout << "Cluster " << i + 1 << ": " << endl;
-//        clusters.at(i).printPoints();
-//    }
 
     return 0;
 }

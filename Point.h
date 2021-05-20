@@ -54,24 +54,24 @@ public:
         return pointId;
     }
 
-    void setPointId(int pointId) {
-        Point::pointId = pointId;
+    void setPointId(int newPointId) {
+        Point::pointId = newPointId;
     }
 
     int getClusterId() const {
         return clusterId;
     }
 
-    void setClusterId(int clusterId) {
-        Point::clusterId = clusterId;
+    void setClusterId(int newClusterId) {
+        Point::clusterId = newClusterId;
     }
 
     const vector<double> &getAttributes() const {
         return attributes;
     }
 
-    void setAttributes(const vector<double> &attributes) {
-        Point::attributes = attributes;
+    void setAttributes(const vector<double> &newAttributes) {
+        Point::attributes = newAttributes;
     }
 
 

@@ -59,10 +59,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/boxhezi/Documents/Monash/FIT5124/pp-kmeans
+CMAKE_SOURCE_DIR = /mnt/e/code/pp-kmeans
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug
+CMAKE_BINARY_DIR = /mnt/e/code/pp-kmeans
 
 #=============================================================================
 # Target rules for target CMakeFiles/pp_kmeans.dir
@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-
 CMakeFiles/pp_kmeans.dir/all:
 	$(MAKE) -f CMakeFiles/pp_kmeans.dir/build.make CMakeFiles/pp_kmeans.dir/depend
 	$(MAKE) -f CMakeFiles/pp_kmeans.dir/build.make CMakeFiles/pp_kmeans.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target pp_kmeans"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/e/code/pp-kmeans/CMakeFiles --progress-num=1,2,3,4 "Built target pp_kmeans"
 .PHONY : CMakeFiles/pp_kmeans.dir/all
 
 # Include target in all.
@@ -81,9 +81,9 @@ all: CMakeFiles/pp_kmeans.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/pp_kmeans.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/code/pp-kmeans/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/pp_kmeans.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/boxhezi/Documents/Monash/FIT5124/pp-kmeans/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/code/pp-kmeans/CMakeFiles 0
 .PHONY : CMakeFiles/pp_kmeans.dir/rule
 
 # Convenience name for target.
