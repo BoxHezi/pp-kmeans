@@ -126,9 +126,6 @@ int main() {
                 }
             }
         }
-//        for (auto &c : clusters) {
-//            cout << c.getClusterId() << ": " << c.getSize() << endl;
-//        }
 
         // TODO: FIX UPDATE CENTROID LOCATION BUG
         for (auto &c : clusters) {
@@ -140,7 +137,7 @@ int main() {
     }
 
     for (auto &c : clusters) {
-        cout << c.getSize() << endl;
+        c.printCentroid();
     }
 
     return 0;

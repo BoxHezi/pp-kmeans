@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/mnt/e/code/pp-kmeans/Cluster.cpp
+Cluster.h
+/mnt/e/code/pp-kmeans/Cluster.h
+
 /mnt/e/code/pp-kmeans/Cluster.h
 vector
 -

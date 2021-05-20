@@ -43,6 +43,17 @@ public:
         }
     }
 
+    void printCentroid() {
+        cout << "[";
+        for (vector<double>::const_iterator i = centroid.begin(); i != centroid.end(); i++) {
+            cout << *i;
+            if (i != centroid.end() - 1) {
+                cout << ", ";
+            }
+        }
+        cout << "]" << endl;
+    }
+
     int getClusterId() const {
         return clusterId;
     }
