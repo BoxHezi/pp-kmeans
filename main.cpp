@@ -4,9 +4,12 @@
 #include <unistd.h>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 #include "Point.h"
 #include "Cluster.h"
+#include "Party.h"
 
+//using namespace emp;
 using namespace std;
 
 /**
@@ -69,7 +72,8 @@ int main(int argc, char **argv) {
     if (argc != 3) {
         cout << "Usage: ./kmeans <k> <iteration>" << endl;
         cout << "For example: ./kemans 3 100" << endl;
-        cout << "The above command will run the clustering algorithm with 3 clusters, and 100 iterations maximum" << endl;
+        cout << "The above command will run the clustering algorithm with 3 clusters, and 100 iterations maximum"
+             << endl;
         return 1;
     }
 
@@ -95,9 +99,26 @@ int main(int argc, char **argv) {
     int k = atoi(argv[1]);
     int iterationUpper = atoi(argv[2]);
 
-    // Init k-points as cluster centroid
+    Party party1(0, "Alice");
+    Party party2(1, "Bob");
+
+    // Init k-points as cluster centroids
+    vector<int> randomRecord;
     for (int i = 0; i < k; i++) {
-        Cluster tempCluster(i, points.at(points.size() / (i + 1) - 1));
+        cout << i << endl;
+        unsigned seed = time(nullptr);
+        seed = seed + ((i + 1) * rand() % 10);
+        srand(seed);
+        int random = rand() % points.size();
+        if (find(randomRecord.begin(), randomRecord.end(), random) !=
+            randomRecord.end()) { // avoid duplicate random initial points
+            i--;
+            continue;
+        }
+        cout << random << endl;
+        randomRecord.push_back(random);
+
+        Cluster tempCluster(i, points.at(random));
         clusters.push_back(tempCluster);
     }
 
