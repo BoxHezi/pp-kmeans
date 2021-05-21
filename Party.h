@@ -49,6 +49,10 @@ public:
         return results;
     }
 
+    void addPoint(const Point &point) {
+        points.push_back(point);
+    }
+
     int getPartyId() const {
         return partyId;
     }

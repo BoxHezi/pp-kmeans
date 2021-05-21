@@ -1,3 +1,4 @@
+#include <utility>
 #include <vector>
 #include <string>
 #include <iostream>
@@ -48,6 +49,11 @@ public:
             data = data.erase(0, strlen(value) + 1);
             count++;
         } while (value != nullptr);
+    }
+
+    Point (int id, vector<double> attributes) {
+        this->pointId = id;
+        this->attributes = std::move(attributes);
     }
 
     int getPointId() const {

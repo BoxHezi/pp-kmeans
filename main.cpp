@@ -99,23 +99,47 @@ int main(int argc, char **argv) {
     int k = atoi(argv[1]);
     int iterationUpper = atoi(argv[2]);
 
-    Party party1(0, "Alice");
-    Party party2(1, "Bob");
+    // Create 2 parties
+    Party partyAlice(0, "Alice");
+    Party partyBob(1, "Bob");
+
+    // randomly pick l dimensions for Alice, n-l for Bob
+    unsigned seed = time(nullptr);
+    srand(seed);
+    int dimensionNum = points.at(0).getAttributes().size();
+    int aliceDimension = 4 + rand() % (dimensionNum / 2); // minimum dimensions alice can get is 5
+    int bobDimension = dimensionNum - aliceDimension;
+
+//    cout << aliceDimension << endl;
+//    cout << bobDimension << endl;
+
+    // Split data point attributes based on dimensions for both Alice and Bob
+    for (auto &point : points) {
+        vector<double> tempAliceAttribute;
+        vector<double> tempBobAttribute;
+        for (int i = 0; i < dimensionNum; i++) {
+            if (i < aliceDimension) {
+                tempAliceAttribute.push_back(point.getAttributes().at(i));
+            } else {
+                tempBobAttribute.push_back(point.getAttributes().at(i));
+            }
+        }
+        Point tempAlicePoint(point.getPointId(), tempAliceAttribute);
+        Point tempBobPoint(point.getPointId(), tempBobAttribute);
+        partyAlice.addPoint(tempAlicePoint);
+        partyBob.addPoint(tempBobPoint);
+    }
 
     // Init k-points as cluster centroids
     vector<int> randomRecord;
     for (int i = 0; i < k; i++) {
-        cout << i << endl;
-        unsigned seed = time(nullptr);
         seed = seed + ((i + 1) * rand() % 10);
-        srand(seed);
         int random = rand() % points.size();
         if (find(randomRecord.begin(), randomRecord.end(), random) !=
             randomRecord.end()) { // avoid duplicate random initial points
             i--;
             continue;
         }
-        cout << random << endl;
         randomRecord.push_back(random);
 
         Cluster tempCluster(i, points.at(random));
