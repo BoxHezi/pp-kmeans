@@ -41,7 +41,12 @@ public:
             for (auto &c : centroids) {
                 distance = 0;
                 for (int i = 0; i < dimensionCount; i++) {
-                    distance += pow(point.getAttributes().at(i) - centroids.at(i), 2);
+                    if (partyId == 0) {
+                        distance += pow(point.getAttributes().at(i) - centroids.at(i), 2);
+                    } else {
+                        distance += pow(
+                                point.getAttributes().at(i) - centroids.at(centroids.size() - dimensionCount + i), 2);
+                    }
                 }
             }
             results.push_back(distance);

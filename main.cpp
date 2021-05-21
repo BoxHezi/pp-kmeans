@@ -107,7 +107,7 @@ int main(int argc, char **argv) {
     unsigned seed = time(nullptr);
     srand(seed);
     int dimensionNum = points.at(0).getAttributes().size();
-    int aliceDimension = 4 + rand() % (dimensionNum / 2); // minimum dimensions alice can get is 5
+    int aliceDimension = 4 + (rand() % (dimensionNum - 7)); // minimum dimensions alice can get is 5
     int bobDimension = dimensionNum - aliceDimension;
 
 //    cout << aliceDimension << endl;
