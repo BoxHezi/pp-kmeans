@@ -4,3 +4,5 @@ cmake_install.cmake
 pp_kmeans
 pp_kmeans.cbp
 /cmake-build-debug/
+/.idea/
+/.idea/*

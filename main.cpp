@@ -82,6 +82,8 @@ int main(int argc, char **argv) {
     vector<Point> points;
     vector<Cluster> clusters;
 
+    vector<Party> parties;
+
     // load csv
     ifstream inputFile;
     inputFile.open("hungary_chickenpox.csv", ios::in);
@@ -103,6 +105,9 @@ int main(int argc, char **argv) {
     Party partyAlice(0, "Alice");
     Party partyBob(1, "Bob");
 
+    parties.push_back(partyAlice);
+    parties.push_back(partyBob);
+
     // randomly pick l dimensions for Alice, n-l for Bob
     unsigned seed = time(nullptr);
     srand(seed);
@@ -110,8 +115,8 @@ int main(int argc, char **argv) {
     int aliceDimension = 4 + (rand() % (dimensionNum - 7)); // minimum dimensions alice can get is 5
     int bobDimension = dimensionNum - aliceDimension;
 
-//    cout << aliceDimension << endl;
-//    cout << bobDimension << endl;
+    cout << aliceDimension << endl;
+    cout << bobDimension << endl;
 
     // Split data point attributes based on dimensions for both Alice and Bob
     for (auto &point : points) {
@@ -130,6 +135,8 @@ int main(int argc, char **argv) {
         partyBob.addPoint(tempBobPoint);
     }
 
+    cout << partyAlice.getPoints().at(0).getAttributes().size() << endl;
+
     // Init k-points as cluster centroids
     vector<int> randomRecord;
     for (int i = 0; i < k; i++) {
@@ -144,6 +151,13 @@ int main(int argc, char **argv) {
 
         Cluster tempCluster(i, points.at(random));
         clusters.push_back(tempCluster);
+
+//        partyAlice.setCentroid(tempCluster.getCentroid());
+//        partyBob.setCentroid(tempCluster.getCentroid());
+
+        vector<double> tempCentroid = tempCluster.getCentroid();
+        partyAlice.addCentroid(tempCentroid);
+        partyBob.addCentroid(tempCentroid);
     }
 
     unsigned int dimensionCount = points.at(0).getAttributes().size();
@@ -151,7 +165,26 @@ int main(int argc, char **argv) {
 
     for (int i = 0; i < iterationUpper; i++) {
         cout << "Iteration " << i + 1 << ": " << endl;
-        for (auto &p : points) {
+
+        for (int j = 0; j < points.size(); j++) {
+            // loop through all parties
+            for (int l = 0; l < 2; l++) {
+                // Multi-party computation
+                if (l == 0) {
+                    // Alice
+                    vector<double> aliceEuDist = partyAlice.calPartialEuDist(partyAlice.getPoints().at(i));
+                } else if (l == 1) {
+                    // Bob
+                    vector<double> bobEuDist = partyBob.calPartialEuDist(partyBob.getPoints().at(i));
+                }
+            }
+
+            // TODO: Alice and Bob secret share Euclidean Distance
+
+            // TODO: find closet cluster and update if necessary
+        }
+
+        /*for (auto &p : points) {
             int closetId = findClosetCluster(p, clusters);
 
             if (p.getClusterId() == -1) {
@@ -174,7 +207,8 @@ int main(int argc, char **argv) {
                     clusters.at(closetId) = newCluster;
                 }
             }
-        }
+        }*/
+
 
         // UPDATE CENTROID LOCATION
         bool sameCentroid = true;
